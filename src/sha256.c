@@ -168,6 +168,13 @@ static void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 		hash[i + 24] = (ctx->state[6] >> (24 - i * 8)) & 0x000000ff;
 		hash[i + 28] = (ctx->state[7] >> (24 - i * 8)) & 0x000000ff;
 	}
+
+    /* Wipe variables */
+    i = 0;
+    memset(ctx->data, 0, 64);
+    memset(ctx->state, 0, 32);
+    ctx->datalen = (WORD) 0;
+    ctx->bitlen = (long long) 0;
 }
 
 /* Produces a hex output of the digest. */
