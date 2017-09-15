@@ -15,7 +15,13 @@
 /****************************** MACROS ******************************/
 #define SHA256_BLOCK_SIZE 32            // SHA256 outputs a 32 byte digest
 
+#ifdef _WIN32
+#define DLLEXPORT __declspec(dllexport)
+#else
+#define DLLEXPORT extern
+#endif
+
 /*********************** FUNCTION DECLARATIONS **********************/
-void compute_sha256(const unsigned char *str, size_t len, char *output);
+DLLEXPORT void compute_sha256(const unsigned char *str, size_t len, char *output);
 
 #endif   // SHA256_H
