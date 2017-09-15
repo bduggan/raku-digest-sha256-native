@@ -3,7 +3,9 @@
     "source-url" : "git://github.com/bduggan/p6-digest-sha256-native.git",
     "perl" : "6.c",
     "resources" : [
-        "libraries/sha256"
+        "libraries/libsha256.so",
+        "libraries/libsha256.dll",
+        "libraries/libsha256.dylib"
     ],
     "build-depends" : [ ],
     "provides" : {
