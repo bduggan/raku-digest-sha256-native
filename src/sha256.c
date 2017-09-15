@@ -178,20 +178,20 @@ static void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 }
 
 /* Produces a hex output of the digest. */
-static void sha256_digest_to_hex(const unsigned char digest[SHA256_BLOCK_SIZE], char *output)
+static void sha256_digest_to_hex(const unsigned char digest[SHA256_BLOCK_SIZE], unsigned char *output)
 {
     int i,j;
-    char *c = output;
+    unsigned char *c = output;
 
     for (i = 0; i < SHA256_BLOCK_SIZE/4; i++) {
         for (j = 0; j < 4; j++) {
-            sprintf(c,"%02X", digest[i*4+j]);
+            sprintf((char *)c,"%02X", digest[i*4+j]);
             c += 2;
         }
     }
 }
 
-void compute_sha256(const unsigned char *str, size_t len, char *output) {
+void compute_sha256(const unsigned char *str, size_t len, unsigned char *output) {
     unsigned char digest[SHA256_BLOCK_SIZE];
     SHA256_CTX context;
     sha256_init(&context);

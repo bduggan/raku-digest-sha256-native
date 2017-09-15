@@ -22,6 +22,6 @@
 #endif
 
 /*********************** FUNCTION DECLARATIONS **********************/
-DLLEXPORT void compute_sha256(const unsigned char *str, size_t len, char *output);
+DLLEXPORT void compute_sha256(const unsigned char *str, size_t len, unsigned char *output);
 
 #endif   // SHA256_H
