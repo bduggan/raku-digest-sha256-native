@@ -1,3 +1,4 @@
+
 Digest::SHA256::Native
 =======
 Fast SHA256 computation using NativeCall to C.
