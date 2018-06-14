@@ -5,7 +5,7 @@
     "resources" : [
         "libraries/sha256"
     ],
-    "build-depends" : [ ],
+    "build-depends" : [ "Shell::Command" ],
     "provides" : {
         "Digest::SHA256::Native" : "lib/Digest/SHA256/Native.pm6"
     },
