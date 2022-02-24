@@ -1,5 +1,5 @@
-#!/usr/bin/env perl6
-use v6;
+#!/usr/bin/env raku
+
 use LibraryMake;
 my %vars = get-vars('.');
 %vars<sha256> = $*VM.platform-library-name('sha256'.IO);

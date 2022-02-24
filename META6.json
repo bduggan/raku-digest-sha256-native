@@ -1,7 +1,7 @@
 {
     "name" : "Digest::SHA256::Native",
     "source-url" : "git://github.com/bduggan/p6-digest-sha256-native.git",
-    "perl" : "6.c",
+    "perl" : "6.*",
     "resources" : [
         "libraries/sha256"
     ],
@@ -12,9 +12,9 @@
     "depends" : [
         "LibraryMake"
     ],
-    "description" : "p6 bindings to C implementation of SHA256",
+    "description" : "Raku bindings to C implementation of SHA256",
     "test-depends" : [ ],
-    "version" : "0.03",
+    "version" : "0.04",
     "license" : "Artistic-2.0",
     "authors" : [
         "Brian Duggan"
