@@ -1,3 +1,5 @@
+name: MacOS
+
 on:
   push:
     branches:
