@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+          - main
+          - master
+          - 'releases/**'
+  pull_request:
+jobs:
+  launch:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Raku/setup-raku@v1
+      with:
+        raku-version: latest
+    - run: zef --/test install App::Prove6
+    - run: zef --debug install .
