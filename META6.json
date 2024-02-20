@@ -1,13 +1,13 @@
 {
     "name" : "Digest::SHA256::Native",
-    "source-url" : "git://github.com/bduggan/p6-digest-sha256-native.git",
-    "perl" : "6.*",
+    "source-url" : "git://github.com/bduggan/raku-digest-sha256-native.git",
+    "raku" : "6.*",
     "resources" : [
         "libraries/sha256"
     ],
     "build-depends" : [ "Shell::Command" ],
     "provides" : {
-        "Digest::SHA256::Native" : "lib/Digest/SHA256/Native.pm6"
+        "Digest::SHA256::Native" : "lib/Digest/SHA256/Native.rakumod"
     },
     "depends" : [
         "LibraryMake"
