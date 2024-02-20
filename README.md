@@ -3,8 +3,10 @@ Digest::SHA256::Native
 =======
 Fast SHA256 computation using NativeCall to C.
 
-[![OS
-tests](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/test.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/test.yml) [![LinuxNix](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/nixos.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/nixos.yml)
+[![OS tests](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/test.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/test.yml)
+[![LinuxNix](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/nixos.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/nixos.yml)
+[![MacOS](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/macos.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/macos.yml)
+[![linux](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/linux.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/linux.yml)
 
 Synopsis
 ========
