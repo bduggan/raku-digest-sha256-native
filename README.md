@@ -3,7 +3,8 @@ Digest::SHA256::Native
 =======
 Fast SHA256 computation using NativeCall to C.
 
-[![Build Status](https://travis-ci.org/bduggan/p6-digest-sha256-native.svg?branch=master)](https://travis-ci.org/bduggan/p6-digest-sha256-native)
+[![OS
+tests](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/test.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/test.yml) [![LinuxNix](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/nixos.yml/badge.svg)](https://github.com/bduggan/raku-digest-sha256-native/actions/workflows/nixos.yml)
 
 Synopsis
 ========
