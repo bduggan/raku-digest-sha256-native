@@ -1,12 +1,16 @@
 
-0.0.4 2022-02-04
+1.0.0 2024-02-20
+    - Added Changes file and github workflows
+    - 1.0.0 release
+
+0.04 2022-02-04
     - more tests
 
-0.0.3 2023-01-20
+0.03 2023-01-20
     - build changes
 
-0.0.2 2017-09-15
+0.02 2017-09-15
     - Initial release
 
-0.0.1 2017-09-15
+0.01 2017-09-15
     - Initial commit
