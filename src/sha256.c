@@ -14,7 +14,6 @@
 
 /*************************** HEADER FILES ***************************/
 #include <stdlib.h>
-#include <stdio.h>
 #include <memory.h>
 #include "sha256.h"
 
@@ -177,17 +176,16 @@ static void sha256_final(SHA256_CTX *ctx, BYTE hash[])
     ctx->bitlen = (long long) 0;
 }
 
-/* Produces a hex output of the digest. */
+/* Produces a hex output of the digest. Writes exactly
+   SHA256_BLOCK_SIZE * 2 bytes; no trailing NUL. */
 static void sha256_digest_to_hex(const unsigned char digest[SHA256_BLOCK_SIZE], unsigned char *output)
 {
-    int i,j;
-    unsigned char *c = output;
+    static const unsigned char hex[] = "0123456789ABCDEF";
+    size_t i;
 
-    for (i = 0; i < SHA256_BLOCK_SIZE/4; i++) {
-        for (j = 0; j < 4; j++) {
-            sprintf((char *)c,"%02X", digest[i*4+j]);
-            c += 2;
-        }
+    for (i = 0; i < SHA256_BLOCK_SIZE; i++) {
+        output[i*2]     = hex[digest[i] >> 4];
+        output[i*2 + 1] = hex[digest[i] & 0x0F];
     }
 }
 
