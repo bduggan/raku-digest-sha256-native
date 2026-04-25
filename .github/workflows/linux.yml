@@ -1,19 +1,27 @@
 name: Linux
-
 on:
   push:
-    branches:
-          - main
-          - master
-          - 'releases/**'
+    branches: ['*']
+    tags-ignore: ['*']
   pull_request:
+
 jobs:
-  launch:
-    runs-on: ubuntu-latest
+  raku:
+    strategy:
+      matrix:
+        os: ['ubuntu-latest']
+        raku-version: ['latest', '2025.12']
+    runs-on: ${{ matrix.os }}
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: Raku/setup-raku@v1
-      with:
-        raku-version: latest
-    - run: zef --/test install App::Prove6
-    - run: zef --debug install .
+      - uses: actions/checkout@v4
+      - uses: Raku/setup-raku@v1
+        with:
+          raku-version: ${{ matrix.raku-version }}
+      - name: Install dependencies
+        run: |
+          zef install --force LibraryMake
+          zef install --deps-only .
+          zef build .
+      - name: Run tests
+        run: zef test -v .

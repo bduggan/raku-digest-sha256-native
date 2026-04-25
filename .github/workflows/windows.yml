@@ -1,0 +1,58 @@
+name: Windows
+on:
+  push:
+    branches: ['*']
+    tags-ignore: ['*']
+  pull_request:
+
+jobs:
+  build-libraries:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chetan/git-restore-mtime-action@v2
+      - name: Setup
+        run: |
+          choco install make
+          choco install mingw
+          refreshenv
+      - name: Update DLL
+        run: |
+          make -f build\makefile-windows dll
+      - name: Upload built DLL
+        uses: actions/upload-artifact@v4
+        with:
+          name: sha256-dll
+          path: resources/libraries/sha256.dll
+          retention-days: 7
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automated Windows DLL save
+          file_pattern: resources/libraries/sha256.dll
+  raku:
+    needs: build-libraries
+    strategy:
+      matrix:
+        raku-version: ['latest', '2025.12']
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull freshly built DLL
+        # build-libraries auto-commits a refreshed DLL, but our checkout
+        # above is pinned to the triggering SHA -- so we'd test against
+        # the stale DLL committed in the repo. Pull the artifact built
+        # in this run instead.
+        uses: actions/download-artifact@v4
+        with:
+          name: sha256-dll
+          path: resources/libraries/
+      - uses: Raku/setup-raku@v1
+        with:
+          raku-version: ${{ matrix.raku-version }}
+      - name: Install dependencies
+        run: |
+          zef install --force LibraryMake
+          zef install --deps-only .
+          zef build .
+      - name: Run tests
+        run: zef test -v .
