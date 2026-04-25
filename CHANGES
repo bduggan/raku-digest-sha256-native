@@ -1,3 +1,10 @@
+1.0.1 2026-04-25
+    - Add support for a windows dll using github
+    - string.h, not memory.h
+    - fix unsigned char usage
+    - change WORD to size_t (issue for inputs > 4G)
+    - support windows, update readme and github actions
+    - fix extra null byte from sprintf, add a test
 
 1.0.0 2024-02-20
     - Added Changes file and github workflows
