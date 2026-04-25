@@ -11,13 +11,14 @@ class Build {
         # On Windows we ship a prebuilt DLL (LibraryMake picks `nmake`, which
         # isn't available on stock runners or most user machines).
         if $*DISTRO.is-win && "$dir/resources/libraries/%vars<sha256>".IO.e {
-            return;
+            return True;
         }
         process-makefile($dir, %vars);
         my $goback = $*CWD;
         chdir($dir);
         shell(%vars<MAKE>);
         chdir($goback);
+        return True;
     }
 }
 
