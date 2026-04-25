@@ -18,5 +18,6 @@
     "license" : "Artistic-2.0",
     "authors" : [
         "Brian Duggan"
-    ]
+    ],
+    "auth" : "zef:bduggan"
 }
