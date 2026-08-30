@@ -18,7 +18,7 @@ is sha256-hex(supply { emit $big.substr($_, 1000) for 0, 1000 ...^ 1_000_000 }),
    sha256-hex($big), 'many small chunks across the 64-byte block boundary';
 
 my $tmp = $*TMPDIR.child("sha256-stream-{$*PID}.dat");
-LEAVE $tmp.unlink;
+LEAVE .unlink with $tmp;
 $tmp.spurt($big);
 is sha256-hex($tmp), sha256-hex($big), 'IO::Path streams a file from disk';
 is sha256-hex($tmp.open(:r, :bin), chunk-size => 7), sha256-hex($big),
