@@ -201,3 +201,20 @@ void compute_sha256(const unsigned char *str, size_t len, unsigned char *output)
     sha256_digest_to_hex(digest, output);
 }
 
+/* Streaming API */
+size_t sha256_stream_ctx_size(void) {
+    return sizeof(SHA256_CTX);
+}
+
+void sha256_stream_init(void *ctx) {
+    sha256_init((SHA256_CTX *)ctx);
+}
+
+void sha256_stream_update(void *ctx, const unsigned char *data, size_t len) {
+    sha256_update((SHA256_CTX *)ctx, data, len);
+}
+
+void sha256_stream_final(void *ctx, unsigned char *output) {
+    sha256_final((SHA256_CTX *)ctx, output);
+}
+
