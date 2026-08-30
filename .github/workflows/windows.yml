@@ -33,7 +33,7 @@ jobs:
     needs: build-libraries
     strategy:
       matrix:
-        raku-version: ['latest', '2025.12']
+        raku-version: ['latest', '2026.07']
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
