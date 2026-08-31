@@ -24,4 +24,12 @@
 /*********************** FUNCTION DECLARATIONS **********************/
 DLLEXPORT void compute_sha256(const unsigned char *str, size_t len, unsigned char *output);
 
+/* Incremental (streaming) API. Caller owns the context: allocate
+   sha256_stream_ctx_size() bytes, then init / update... / final.
+   final writes the raw SHA256_BLOCK_SIZE byte digest to output. */
+DLLEXPORT size_t sha256_stream_ctx_size(void);
+DLLEXPORT void sha256_stream_init(void *ctx);
+DLLEXPORT void sha256_stream_update(void *ctx, const unsigned char *data, size_t len);
+DLLEXPORT void sha256_stream_final(void *ctx, unsigned char *output);
+
 #endif   // SHA256_H
