@@ -1,3 +1,7 @@
+1.0.2 2026-09-01
+    - Streaming interface; IO::Path, IO::Handle, Supply
+    - improve dll build
+
 1.0.1 2026-04-25
     - Add support for a windows dll using github
     - string.h, not memory.h
